@@ -43,10 +43,19 @@ export class CarsController {
   }
 
   @Patch(':id')
+  @ApiOperation({ summary: 'update an existing car' })
+  @ApiResponse({
+    status: HttpStatus.OK,
+    description: 'The car has been successfully updated.',
+  })
   update(@Param('id') id: string, @Body() updateCarDto: UpdateCarDto) {
     return this.carsService.update(+id, updateCarDto);
   }
-
+  @ApiOperation({ summary: 'update an existing car' })
+  @ApiResponse({
+    status: HttpStatus.NO_CONTENT,
+    description: 'The car has been successfully deleted.',
+  })
   @HttpCode(HttpStatus.NO_CONTENT)
   @Delete(':id')
   remove(@Param('id') id: string) {

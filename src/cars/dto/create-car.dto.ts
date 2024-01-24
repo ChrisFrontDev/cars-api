@@ -1,5 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 
+// TODO: Add validation to all properties
+//TODO: add FilterException For prisma errors
+
 export class CreateCarDto {
   @ApiProperty({ example: 'Toyota' })
   brand: string;

@@ -11,7 +11,11 @@ export class CarsService {
   }
 
   findAll() {
-    return `This action returns all cars`;
+    return this.prismaService.car.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
   }
 
   findOne(id: number) {

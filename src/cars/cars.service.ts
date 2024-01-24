@@ -19,7 +19,9 @@ export class CarsService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} car`;
+    return this.prismaService.car.findUnique({
+      where: { id: id },
+    });
   }
 
   update(id: number, updateCarDto: UpdateCarDto) {
@@ -30,6 +32,8 @@ export class CarsService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} car`;
+    return this.prismaService.car.delete({
+      where: { id: id },
+    });
   }
 }

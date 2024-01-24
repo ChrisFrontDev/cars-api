@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   HttpStatus,
+  HttpCode,
 } from '@nestjs/common';
 import { ApiTags, ApiResponse, ApiOperation } from '@nestjs/swagger';
 
@@ -46,6 +47,7 @@ export class CarsController {
     return this.carsService.update(+id, updateCarDto);
   }
 
+  @HttpCode(HttpStatus.NO_CONTENT)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.carsService.remove(+id);

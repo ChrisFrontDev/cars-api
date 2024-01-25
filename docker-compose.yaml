@@ -8,9 +8,11 @@ services:
     volumes:
       - .:/home/node/app
     environment:
-      DATABASE_URL: postgresql://postgres:postgres@db:5432/car_api?connect_timeout=300
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/car_api?connect_timeout=3000
+    command: bash -c "npm install && npx prisma migrate dev && npm run start:dev"
     depends_on:
       - db
+    
 
   db:
     image: postgres:9.6

@@ -7,11 +7,15 @@ services:
       - "3000:3000"
     volumes:
       - .:/home/node/app
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/car_api?connect_timeout=300
+    depends_on:
+      - db
 
   db:
     image: postgres:9.6
     ports:
-      - "5433:5432"
+      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres

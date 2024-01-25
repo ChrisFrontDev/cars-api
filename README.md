@@ -8,11 +8,20 @@ This project is a car inventory management system built with NestJS and Prisma. 
 - Update details of an existing car
 - Delete a car from the inventory
 
+
+## Run the application using Docker Compose:
+   - Ensure Docker is installed on your machine
+   - Navigate to the project directory in your terminal
+   - Run the following command: `docker-compose up` 
+
 ## Installation
 1. Clone the repository
 2. Install dependencies using `npm install`
 3. Set up the database connection in the `.env` file
 4. Run the application using `npm start`
+
+
+
 
 ## Usage
 - To view all cars: Send a GET request to `http://localhost:3000/cars`
